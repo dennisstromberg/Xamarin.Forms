@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Sample.Pages;
 using Sample.Services;
@@ -10,12 +9,17 @@ namespace Sample
 {
 	public class MyApp : App
 	{
+		//public MyApp(IServiceProvider provider) : base(provider)
+		//{
+		//}
+
 		public void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
 		{
 			services.AddSingleton<ITextService, TextService>();
 			services.AddTransient<MainPageViewModel>();
 			services.AddTransient<MainPage>();
 			services.AddTransient<IWindow, MainWindow>();
+
 		}
 
 
